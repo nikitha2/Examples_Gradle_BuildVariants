@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Gradle_CommonUseCases</string>
+    <string name="mainfragment">MainFragment</string>
+</resources>
