@@ -3,7 +3,6 @@ plugins {
 }
 
 android {
-
     compileSdkVersion 30             // must define variants
     buildToolsVersion "30.0.2"       // must define variants
 
@@ -13,7 +12,6 @@ android {
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
-
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -22,15 +20,32 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+        // you can add build type here
+        qaTesting {
+        }
+    }
+    // Specifies one flavor dimension.
+    flavorDimensions "version"
+    productFlavors {
+        demo {
+            // Assigns this product flavor to the "version" flavor dimension.If you are using only one dimension, this property is optional,
+            // and the plugin automatically assigns all the module's flavors to that dimension.
+            dimension "version"
+            applicationIdSuffix ".demo"
+            versionNameSuffix "-demo"
+        }
+        full {
+            dimension "version"
+            applicationIdSuffix ".full"
+            versionNameSuffix "-full"
+        }
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
 }
-
 dependencies {
-
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'com.google.android.material:material:1.2.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
