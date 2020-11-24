@@ -1,0 +1,11 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.examples_gradle_commonusecases">
+
+    <application>
+        <activity
+            android:name="com.example.examples_gradle_commoncases.Paid.JokeActivity"
+            android:label="@string/joke"
+            android:parentActivityName=".MainActivity"/>
+    </application>
+
+</manifest>

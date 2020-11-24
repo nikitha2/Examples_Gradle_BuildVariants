@@ -13,6 +13,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
     }
 
     buildTypes {
@@ -27,17 +28,19 @@ android {
     // Specifies one flavor dimension.
     flavorDimensions "version"
     productFlavors {
-        demo {
+        free {
+            applicationId "com.example.example_gradle_commonusecases.free"
             // Assigns this product flavor to the "version" flavor dimension.If you are using only one dimension, this property is optional,
             // and the plugin automatically assigns all the module's flavors to that dimension.
             dimension "version"
-            applicationIdSuffix ".demo"
-            versionNameSuffix "-demo"
+            applicationIdSuffix ".free"
+            versionNameSuffix "-free"
         }
-        full {
+        paid {
+            applicationId "com.example.example_gradle_commonusecases.paid"
             dimension "version"
-            applicationIdSuffix ".full"
-            versionNameSuffix "-full"
+            applicationIdSuffix ".paid"
+            versionNameSuffix "-paid"
         }
     }
     compileOptions {
@@ -54,4 +57,5 @@ dependencies {
     testImplementation 'junit:junit:4.13.1'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    freeImplementation 'com.google.android.gms:play-services-ads:19.5.0' // will apply only to the free version
 }

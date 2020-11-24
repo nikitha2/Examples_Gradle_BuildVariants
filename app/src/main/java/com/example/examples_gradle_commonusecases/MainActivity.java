@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-import com.example.examples_gradle_commonusecases.ui.main.MainFragment;
+import com.example.examples_gradle_commoncases.MainFragment;
 
 public class MainActivity extends AppCompatActivity {
 

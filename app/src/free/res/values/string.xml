@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <string name="free_greeting">This is the free, ad supported version.</string>
+    <string name="MainFragmentFree">tellJoke for Free</string>
+    <string name="greetingf"> Go ahead and add free and paid versions!F</string>
+    <string name="buildFlavor"> Free Version</string>
+    <string name="app_name">Flavor Specific Activity - Free</string>
+
+    <string name="toast_text">Upgrade to the paid version to get a joke!</string>
+</resources>
