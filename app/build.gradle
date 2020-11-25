@@ -3,6 +3,16 @@ plugins {
 }
 
 android {
+    // this is to create a keystore to release the app :configuring signing
+    //https://youtu.be/QYHD7HsNDiY
+    signingConfigs {
+        config {
+            storeFile file("$rootDir/KeyStore.jks")
+            storePassword 'password'
+            keyPassword 'password'
+            keyAlias 'key0_password'
+        }
+    }
     compileSdkVersion 30             // must define variants
     buildToolsVersion "30.0.2"       // must define variants
 
@@ -13,14 +23,28 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        multiDexEnabled true
+        multiDexEnabled true   // this is compile large projects. else the mex methods you can add is 65k
     }
 
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
         }
+//        Proguard can do a lot of interesting stuff, including obfuscating your code by
+//        giving all your classes and methods meaningless names. That's mostly of
+//        interest if you're really worried about your code being reverse engineered.
+//        For our purposes, however, the properties we want to configure on our build
+//        type are minifyEnabled and shrinkResources.
+      /*  shrunk {
+            minifyEnabled true
+            shrinkResources true
+        }
+        big {
+            minifyEnabled false
+            shrinkResources false
+        }*/
         // you can add build type here
         qaTesting {
         }
@@ -54,8 +78,12 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.2.0'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
+    implementation project(path: ':JokeWizard')
     testImplementation 'junit:junit:4.13.1'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
     freeImplementation 'com.google.android.gms:play-services-ads:19.5.0' // will apply only to the free version
+    implementation project(':JokeSmith')
+    implementation project(':JokeWizard')
+
 }

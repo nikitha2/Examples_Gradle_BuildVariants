@@ -1,2 +1,4 @@
+include ':JokeWizard'
+include ':JokeSmith'
 include ':app'
 rootProject.name = "Examples_Gradle_commonUseCases"
