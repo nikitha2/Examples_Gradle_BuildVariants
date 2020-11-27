@@ -25,7 +25,7 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled true   // this is compile large projects. else the mex methods you can add is 65k
     }
-
+   
     buildTypes {
         release {
             minifyEnabled false
